@@ -1,19 +1,24 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-const router = express.Router();
+import url from 'url';
+import { Stats } from '../db';
 
+const router = express.Router();
 
 // create application/json parser
 const jsonParser = bodyParser.json()
 
-
-function handleTracking (url) {
-  console.log(url)
+async function handleTracking (fullUrl) {
+  const parsedUrl = url.parse(fullUrl);
+  if(parsedUrl.hostname) {
+    const results = await Stats.addOneOrCreate(parsedUrl.hostname);
+  }
 } 
 
 /* GET Top referrers */
-router.get('/', function(req, res, next) {
-  res.json({a:2});
+router.get('/', async function(req, res, next) {
+  const rows = await Stats.find({}).sort({count: -1}).limit(5).exec();
+  res.json(rows)
 });
 
 /* POST new url to track */

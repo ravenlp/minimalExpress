@@ -9,7 +9,9 @@ body {
     padding: 10px;
 }
 
-.InputForm { }
+.InputForm {
+  margin-bottom: 20px
+}
     .InputForm input {
         display: block
     }
