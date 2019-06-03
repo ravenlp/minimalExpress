@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 
 // API endpoints
 import { stats } from './api';
@@ -6,6 +7,8 @@ import { stats } from './api';
 // DB connection and model
 import { connectDb } from './db';
 let  app = express();
+
+app.use(cors());
 
 app.get('/', (req, res) => res.redirect("index.html"));
 

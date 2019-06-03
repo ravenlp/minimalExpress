@@ -19,6 +19,8 @@ services:
   minimalexpress:
     image: minimalexpress
     build: .
+    depends_on:
+      - "mongodb"
     environment:
       NODE_ENV: production
       DATABASE_URL: mongodb://root:passWord@mongodb:27017/tracking
