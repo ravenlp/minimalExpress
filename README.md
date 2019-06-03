@@ -1,10 +1,12 @@
 # Minimal Express example
 
-An example of a (pretty mutch) minimal implementarion of an NodeJs server, using Exprees, a data layer using MongoDb and a simple UI built using React.
+An example of a (pretty mutch) minimal implementarion of an NodeJs server, using Express, a db layer using MongoDb and a simple UI built using React.
 
 ## How to run production build
 
 To run the production build just fire up docker-compose as follows: 
+
+(NOTE: The lastest build is included in the repo just to make it easier to dive in and test the server without needing to run npm install.)
 
 ```bash
 docker-compose -f "docker-compose.yml" up --build
