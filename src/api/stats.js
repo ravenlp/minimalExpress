@@ -15,6 +15,13 @@ async function handleTracking (fullUrl) {
   }
 } 
 
+/* GET healthcheck */
+router.get('/healthcheck',  function(req, res, next) {
+  res.json({
+    status : "success"
+  })
+});
+
 /* GET Top referrers */
 router.get('/', async function(req, res, next) {
   const rows = await Stats.find({}).sort({count: -1}).limit(5).exec();
